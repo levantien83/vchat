@@ -6,7 +6,7 @@ Submitted by: **Le Van Tien**
 
 Time spent: **18** hours
 
-URL: **Insert your Heroku URL here**
+URL: **http://valentinechat.herokuapp.com**
 
 ## User Stories
 
