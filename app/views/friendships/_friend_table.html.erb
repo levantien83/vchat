@@ -1,0 +1,71 @@
+<h3>Friend list</h3>
+<% if @true_friendships.size > 0 %>
+  <table class="table">
+    <thead class="thead thead-default">
+      <tr>
+        <% @true_friend_theads.each do |thead| %>
+          <th><%= thead %></th>      
+        <% end -%>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render  @true_friendships %>
+    </tbody>
+  </table>
+<% else %>
+  <strong> No friends indeed </strong>
+<% end -%>
+
+<h3>Friend request(s) recieved</h3>
+<% if  @follower_relations.size > 0 %>
+  <table class="table">
+    <thead class="thead thead-default">
+      <tr>
+        <% @follower_theads.each do |thead| %>
+          <th><%= thead %></th>      
+        <% end -%>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render  @follower_relations %>
+    </tbody>
+  </table>
+<% else %>
+  <strong> No-one likes you, hahaha </strong>
+<% end -%>
+
+<h3>Friend request(s) sent</h3>
+<% if @following_relations.size > 0 %>
+  <table class="table">
+    <thead class="thead thead-default">
+      <tr>
+        <% @following_theads.each do |thead| %>
+          <th><%= thead %></th>      
+        <% end -%>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @following_relations %>
+    </tbody>
+  </table>
+<% else %>
+  <strong> Add someone or live alone </strong>
+<% end -%>
+
+<h3>Potential friends</h3>
+<% if @other_users.size > 0 %>
+  <table class="table">
+    <thead class="thead thead-default">
+      <tr>
+        <% @other_user_theads.each do |thead| %>
+          <th><%= thead %></th>      
+        <% end -%>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @other_users %>
+    </tbody>
+  </table>
+<% else %>
+  <strong> All the people in this world are your friends </strong>
+<% end -%>

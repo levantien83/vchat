@@ -1,0 +1,19 @@
+<tr>  
+  <td><%= message.from_email %></td>
+  <td><%= message.to_email %></td>
+
+  <% if current_user && message.to_id == current_user.id %>
+    <% if message.read? %>
+      <td><strong>Read, once.</strong></td>
+    <% else %>
+      <td><%= link_to 'Open', user_message_path(current_user.id, message.id) %></td>
+    <% end -%>
+  <% else %>
+    <td><%= message.body %></td>
+    <% if message.read? %>  
+      <td><%= time_ago_in_words message.read_at %> ago</td>
+    <% else %>
+      <td><strong>Unread</strong></td>
+    <% end -%>
+  <% end -%>
+</tr>

@@ -1,0 +1,10 @@
+<% unless @message.read? %>
+  <p>From: <%= @message.from_email %></p>
+  <p>Message: <%= @message.body %></p>
+  <% if (! @message.read?) && current_user == @message.to %>
+    <% @message.mark_as_read! %>
+  <% end -%>
+<% else %> 
+  <p>Message's read <%= time_ago_in_words @message.read_at %> ago.</p>
+<% end -%>
+<%= link_to "Back", recieved_user_messages_path(current_user.id), class: "btn btn-secondary" %>

@@ -1,0 +1,12 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= time_ago_in_words user.created_at %></td>        
+  <td>
+    <%= link_to 'Add friend',
+      friendships_path(:friend_id => user),
+      :method => :post,
+      class: 'btn btn-secondary' 
+    %>              
+  </td>
+</tr>

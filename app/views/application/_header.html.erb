@@ -1,0 +1,30 @@
+<nav class="navbar navbar-dark bg-inverse">
+  <a class="navbar-brand" href="/">vChat</a>
+  <ul class="nav navbar-nav">
+    <% if current_user %>
+      <li class="nav-item">
+        <%= link_to "Log out #{current_user.email}", logout_path, method: 'delete',  class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Add friends", friendships_path,  class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "New message", new_user_message_path(current_user.id), class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Inbox(#{current_user.unread_messages.count})", recieved_user_messages_path(current_user.id), class: "nav-link" %>
+      </li>
+       <li class="nav-item">
+        <%= link_to "Outbox", sent_user_messages_path(current_user.id), class: "nav-link" %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Create an account", new_user_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Log in", new_session_path, class: "nav-link" %>
+      </li>
+
+    <% end -%>
+  </ul>
+</nav>

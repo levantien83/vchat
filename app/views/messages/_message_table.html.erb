@@ -1,0 +1,12 @@
+<table class="table">
+  <thead class="thead thead-default">
+    <tr>
+      <% @theads.each do |thead| %>
+        <th><%= thead %></th>      
+      <% end -%>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @messages %>
+  </tbody>
+</table>
